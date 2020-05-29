@@ -11,9 +11,7 @@ mpl.rcParams['figure.figsize'] = (10,10)
 mpl.rcParams['axes.grid'] = False
 import time
 import datetime
-import requests
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-img_dir = BASE_DIR + 'images/'
+
 
 
 """## Neural Style Transfer
@@ -35,6 +33,8 @@ know how would it look like? The below image shows it would look something like 
 """
 st.image(Image.open("LinkedIn.JPG"), width=512)
 
+def returnNotMatches(a, b):
+    return [x for x in a if x not in b]
 
 # datetime object containing current date and time
 now = datetime.datetime.now()
@@ -58,34 +58,29 @@ if uploaded_file1 is not None:
     data1 = Image.open(uploaded_file1)
     data1 = data1.convert("RGB")
     data1.save('Your-Style-Image.jpg')
-    # st.image(data, use_column_width=True)
     st.empty()
 
 # =============================================================================
 # Dropdown list of Style and Content Image
 # =============================================================================
-
-
-# @st.cache()
-contentImageNames = ["House-in-Austria.jpg", "Walhalla-Regensburg.jpg", "River.JPG", "King-of-Walhalla.JPG",
+contentImageNames123 = os.listdir()
+st.write(contentImageNames123)
+contentImageNames = ["House-in-Austria.jpg", "River.JPG", "King-of-Walhalla.JPG",
                         "River-Bridge-Path.JPG", "River-Bridge-Tree.JPG", "Riverfront.JPG", "Riverfront-Cycle.JPG",
-                        "Tree-Springs.JPG", "Tree-Springs1.JPG", "View-From-Walhalla.JPG"]
+                        "Tree-Springs.JPG", "Tree-Springs1.JPG", "View-From-Walhalla.JPG", "Walhalla-Regensburg.jpg"]
 
 
 contentImage = st.selectbox("Please Select a Content Picture", contentImageNames, len(contentImageNames)-1)
 selectedContentImage = contentImage
-# st.image(Image.open(selectedContentImage), caption=contentImage, use_column_width=True)
-
-
 
 styleImageNames = ["La-Mousme.jpg", "Self-Potrait.jpg", "Starry-Night.jpg", "Tuebingen-Neckarfront.jpg",
-      "Vassily-Kandinsky.jpg", "Waves.jpg", "Starry-Night-Over-the-Rhone.jpg","Style-Art-Image.jpg"]
+      "Vassily-Kandinsky.jpg", "Starry-Night-Over-the-Rhone.jpg","Style-Art-Image.jpg", "Waves.jpg"]
 
 
 
 styleImage = st.selectbox("Please Select a Style Picture", styleImageNames, len(styleImageNames)-1)
 selectedStyleImage = styleImage
-# st.image(Image.open(selectedStyleImage), caption=styleImage, use_column_width=True)
+
 
 # Set up some global values here
 content_path = selectedContentImage
