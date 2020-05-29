@@ -12,7 +12,7 @@ mpl.rcParams['axes.grid'] = False
 import time
 import datetime
 
-img_dir = './images/'
+img_dir = 'images/'
 
 
 """## Neural Style Transfer
