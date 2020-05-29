@@ -33,7 +33,7 @@ taken digitally somewhere in Austria and the style image ([**Starry Night**](htt
 know how would it look like? The below image shows it would look something like this.  
 
 """
-st.image(Image.open("linkedin.jpg"), width=512)
+st.image(Image.open("LinkedIn.jpg"), width=512)
 
 
 def returnNotMatches(a, b):
