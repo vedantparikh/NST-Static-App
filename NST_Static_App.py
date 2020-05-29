@@ -12,7 +12,7 @@ mpl.rcParams['axes.grid'] = False
 import time
 import datetime
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-img_dir = BASE_DIR + '/images/'
+img_dir = BASE_DIR + 'images/'
 
 
 """## Neural Style Transfer
