@@ -187,7 +187,7 @@ if "Your-Content-Image.jpg" in ImageNames123 or "Your-Style-Image.jpg" in ImageN
             style_sidebar.image(Image.open("Waves.jpg"), caption="Content Image", width=200)
         if "Your-Content-Image.jpg" in ImageNames123:
             os.remove("Your-Content-Image.jpg")
-            style_sidebar.image(Image.open("Walhalla-Regensburg.jpg"), caption="Content Image", width=200)
+            content_sidebar.image(Image.open("Walhalla-Regensburg.jpg"), caption="Content Image", width=200)
 
 st.markdown("## Party time!")
 st.write("Yay! You're done with this Training and Generation of NST image. Click below to celebrate.")
