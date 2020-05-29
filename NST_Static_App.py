@@ -172,17 +172,6 @@ row_col = st.number_input('Please Select Number of Images you want to plot', val
 if st.button('Start Training'):
     st.text("Training Started")
 
-# =============================================================================
-# Data Deletion and Celebration
-# =============================================================================
-    
-if len(aa) != 0 or len(bb) != 0:
-    vv = st.button("Delete Data")
-    if vv:
-        if len(bb) != 0:
-            os.remove(img_dir + "styleImages/"+ "Your-Style-Image.jpg")
-        if len(aa) != 0:
-            os.remove(img_dir + "contentImages/" + "Your-Content-Image.jpg")
 
 st.markdown("## Party time!")
 st.write("Yay! You're done with this Training and Generation of NST image. Click below to celebrate.")
