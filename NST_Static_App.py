@@ -36,9 +36,6 @@ know how would it look like? The below image shows it would look something like 
 st.image(Image.open("LinkedIn.JPG"), width=512)
 
 
-def returnNotMatches(a, b):
-    return [x for x in a if x not in b]
-
 # datetime object containing current date and time
 now = datetime.datetime.now()
 dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
@@ -53,14 +50,14 @@ uploaded_file = st.file_uploader("Choose a Content Image file", type=["jpg","jpe
 if uploaded_file is not None:
     data = Image.open(uploaded_file)
     data = data.convert("RGB")
-    data.save( img_dir + "ContentImages/"+'Your-Content-Image.jpg')
+    data.save('Your-Content-Image.jpg')
     # st.image(data, use_column_width=True)
 
 uploaded_file1 = st.file_uploader("Choose a Style Image file", type=["jpg","jpeg","png", "JPEG"])
 if uploaded_file1 is not None:
     data1 = Image.open(uploaded_file1)
     data1 = data1.convert("RGB")
-    data1.save( img_dir + "styleImages/"+'Your-Style-Image.jpg')
+    data1.save('Your-Style-Image.jpg')
     # st.image(data, use_column_width=True)
     st.empty()
 
@@ -68,28 +65,26 @@ if uploaded_file1 is not None:
 # Dropdown list of Style and Content Image
 # =============================================================================
 
-contentImageNames = os.listdir(img_dir+'contentImages/')
 
 # @st.cache()
-contentImageNames111 = ["House-in-Austria.jpg", "Walhalla-Regensburg.jpg", "River.JPG", "King-of-Walhalla.JPG",
+contentImageNames = ["House-in-Austria.jpg", "Walhalla-Regensburg.jpg", "River.JPG", "King-of-Walhalla.JPG",
                         "River-Bridge-Path.JPG", "River-Bridge-Tree.JPG", "Riverfront.JPG", "Riverfront-Cycle.JPG",
                         "Tree-Springs.JPG", "Tree-Springs1.JPG", "View-From-Walhalla.JPG"]
-aa = returnNotMatches(contentImageNames, contentImageNames111)
-# aa = list(set(contentImageNames).difference(set(contentImageNames111)))
 
-contentImage = st.selectbox("Please Select a Content Picture", contentImageNames, len(contentImageNames)-1)
-selectedContentImage = img_dir + "contentImages/" + contentImage
+
+contentImage = st.selectbox("Please Select a Content Picture", contentImageNames, len(contentImageNames))
+selectedContentImage = contentImage
 # st.image(Image.open(selectedContentImage), caption=contentImage, use_column_width=True)
 
 
-styleImageNames = os.listdir(img_dir+'styleImages/')
-styleImageNames111 = ["La-Mousme.jpg", "Self-Potrait.jpg", "Starry-Night.jpg", "Tuebingen-Neckarfront.jpg",
+
+styleImageNames = ["La-Mousme.jpg", "Self-Potrait.jpg", "Starry-Night.jpg", "Tuebingen-Neckarfront.jpg",
       "Vassily-Kandinsky.jpg", "Waves.jpg", "Starry-Night-Over-the-Rhone.jpg","Style-Art-Image.jpg"]
-bb = list(set(styleImageNames).difference(set(styleImageNames111)))
 
 
-styleImage = st.selectbox("Please Select a Style Picture", styleImageNames, len(styleImageNames)-1)
-selectedStyleImage = img_dir + "styleImages/"+ styleImage
+
+styleImage = st.selectbox("Please Select a Style Picture", styleImageNames, len(styleImageNames))
+selectedStyleImage = styleImage
 # st.image(Image.open(selectedStyleImage), caption=styleImage, use_column_width=True)
 
 # Set up some global values here
