@@ -117,7 +117,7 @@ Hence, we also need to normalize our input images as per the VGG16 model standar
 
 The below figure shows `model.summary()` of VGG16 model:
 """
-image = Image.open(img_dir + '/vgg16.png')
+image = Image.open('vgg16.png')
 st.image(image, caption='VGG16 Model Summary',use_column_width=True)
 
 """
