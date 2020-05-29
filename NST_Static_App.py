@@ -12,6 +12,14 @@ mpl.rcParams['axes.grid'] = False
 import time
 import datetime
 
+# If previous User forgot to delete his data
+ImageNames123 = os.listdir()
+if "Your-Style-Image.jpg" in ImageNames123:
+    os.remove("Your-Style-Image.jpg")
+
+if "Your-Content-Image.jpg" in ImageNames123:
+    os.remove("Your-Content-Image.jpg")
+
 
 
 """## Neural Style Transfer
