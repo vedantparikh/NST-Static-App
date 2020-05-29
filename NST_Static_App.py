@@ -63,21 +63,29 @@ if uploaded_file1 is not None:
 # =============================================================================
 # Dropdown list of Style and Content Image
 # =============================================================================
-contentImageNames123 = os.listdir()
-st.write(contentImageNames123)
+ImageNames123 = os.listdir()
+# st.write(ImageNames123)
 contentImageNames = ["House-in-Austria.jpg", "River.JPG", "King-of-Walhalla.JPG",
                         "River-Bridge-Path.JPG", "River-Bridge-Tree.JPG", "Riverfront.JPG", "Riverfront-Cycle.JPG",
                         "Tree-Springs.JPG", "Tree-Springs1.JPG", "View-From-Walhalla.JPG", "Walhalla-Regensburg.jpg"]
 
-
+if "Your-Content-Image.jpg" in ImageNames123:
+    contentImageNames = ["House-in-Austria.jpg", "River.JPG", "King-of-Walhalla.JPG",
+                        "River-Bridge-Path.JPG", "River-Bridge-Tree.JPG", "Riverfront.JPG", "Riverfront-Cycle.JPG",
+                        "Tree-Springs.JPG", "Tree-Springs1.JPG", "View-From-Walhalla.JPG", "Walhalla-Regensburg.jpg", "Your-Content-Image.jpg"]
+else:
+    pass
 contentImage = st.selectbox("Please Select a Content Picture", contentImageNames, len(contentImageNames)-1)
 selectedContentImage = contentImage
 
 styleImageNames = ["La-Mousme.jpg", "Self-Potrait.jpg", "Starry-Night.jpg", "Tuebingen-Neckarfront.jpg",
       "Vassily-Kandinsky.jpg", "Starry-Night-Over-the-Rhone.jpg","Style-Art-Image.jpg", "Waves.jpg"]
 
-
-
+if "Your-Style-Image.jpg" in ImageNames123:
+    styleImageNames = ["La-Mousme.jpg", "Self-Potrait.jpg", "Starry-Night.jpg", "Tuebingen-Neckarfront.jpg",
+      "Vassily-Kandinsky.jpg", "Starry-Night-Over-the-Rhone.jpg","Style-Art-Image.jpg", "Waves.jpg", "Your-Style-Image.jpg"]
+else:
+    pass
 styleImage = st.selectbox("Please Select a Style Picture", styleImageNames, len(styleImageNames)-1)
 selectedStyleImage = styleImage
 
@@ -167,6 +175,14 @@ row_col = st.number_input('Please Select Number of Images you want to plot', val
 if st.button('Start Training'):
     st.text("Training Started")
 
+
+if "Your-Content-Image.jpg" in ImageNames123 or "Your-Style-Image.jpg" in ImageNames123:
+    vv = st.button("Delete Data")
+    if vv:
+        if "Your-Style-Image.jpg" in ImageNames123:
+            os.remove("Your-Style-Image.jpg")
+        if "Your-Content-Image.jpg" in ImageNames123:
+            os.remove("Your-Content-Image.jpg")
 
 st.markdown("## Party time!")
 st.write("Yay! You're done with this Training and Generation of NST image. Click below to celebrate.")
