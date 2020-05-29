@@ -1,1 +1,1 @@
-web: setup.sh && streamlit run NST_Static_App.py
+web: sh setup.sh && streamlit run NST_Static_App.py
