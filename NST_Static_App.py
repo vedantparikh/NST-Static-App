@@ -72,7 +72,7 @@ contentImageNames = ["House-in-Austria.jpg", "Walhalla-Regensburg.jpg", "River.J
                         "Tree-Springs.JPG", "Tree-Springs1.JPG", "View-From-Walhalla.JPG"]
 
 
-contentImage = st.selectbox("Please Select a Content Picture", contentImageNames, len(contentImageNames))
+contentImage = st.selectbox("Please Select a Content Picture", contentImageNames, len(contentImageNames)-1)
 selectedContentImage = contentImage
 # st.image(Image.open(selectedContentImage), caption=contentImage, use_column_width=True)
 
@@ -83,7 +83,7 @@ styleImageNames = ["La-Mousme.jpg", "Self-Potrait.jpg", "Starry-Night.jpg", "Tue
 
 
 
-styleImage = st.selectbox("Please Select a Style Picture", styleImageNames, len(styleImageNames))
+styleImage = st.selectbox("Please Select a Style Picture", styleImageNames, len(styleImageNames)-1)
 selectedStyleImage = styleImage
 # st.image(Image.open(selectedStyleImage), caption=styleImage, use_column_width=True)
 
