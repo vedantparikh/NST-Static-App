@@ -148,9 +148,12 @@ content_layers = st.multiselect('Please select layer/s to train Content image on
 num_content_layers = len(content_layers)
 num_style_layers = len(style_layers)
 
-st.sidebar.image(Image.open(selectedContentImage), caption="Content Image", width=200)
+content_sidebar = st.sidebar.empty()
+style_sidebar = st.sidebar.empty()
 
-st.sidebar.image(Image.open(selectedStyleImage), caption="Style Image", width=200)
+content_sidebar.image(Image.open(selectedContentImage), caption="Content Image", width=200)
+
+style_sidebar.image(Image.open(selectedStyleImage), caption="Style Image", width=200)
 
 """
 In NST the loss function is the summation of loss between input image with the content image (content loss)
@@ -181,8 +184,10 @@ if "Your-Content-Image.jpg" in ImageNames123 or "Your-Style-Image.jpg" in ImageN
     if vv:
         if "Your-Style-Image.jpg" in ImageNames123:
             os.remove("Your-Style-Image.jpg")
+            style_sidebar.image(Image.open("Waves.jpg"), caption="Content Image", width=200)
         if "Your-Content-Image.jpg" in ImageNames123:
             os.remove("Your-Content-Image.jpg")
+            style_sidebar.image(Image.open("Walhalla-Regensburg.jpg"), caption="Content Image", width=200)
 
 st.markdown("## Party time!")
 st.write("Yay! You're done with this Training and Generation of NST image. Click below to celebrate.")
