@@ -11,8 +11,8 @@ mpl.rcParams['figure.figsize'] = (10,10)
 mpl.rcParams['axes.grid'] = False
 import time
 import datetime
-
-img_dir = './images/'
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+img_dir = BASE_DIR + '/images/'
 
 
 """## Neural Style Transfer
