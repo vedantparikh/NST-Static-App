@@ -11,6 +11,7 @@ mpl.rcParams['figure.figsize'] = (10,10)
 mpl.rcParams['axes.grid'] = False
 import time
 import datetime
+import requests
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 img_dir = BASE_DIR + 'images/'
 
@@ -32,7 +33,7 @@ taken digitally somewhere in Austria and the style image ([**Starry Night**](htt
 know how would it look like? The below image shows it would look something like this.  
 
 """
-st.image(Image.open("linkedin.jpg"), width=512)
+st.image(Image.open(requests.get(BASE_DIR + "linkedin.jpg")), width=512)
 
 
 def returnNotMatches(a, b):
